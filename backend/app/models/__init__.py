@@ -12,3 +12,5 @@ from .user import User
 from .email_auth import EmailLoginToken
 from .workspace import Knowledge,Routine,WorkspaceSetting,UsageEvent,Notification,ContextCheckpoint,SharedTemplate,ComputerControl,ComputerCommand,ToolApproval,SharedFile,LocalDevice,LocalDeviceJob
 from app.db.session import Base
+
+from .prospecting import ProspectingRun

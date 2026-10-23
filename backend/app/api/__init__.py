@@ -42,3 +42,6 @@ router.include_router(computer_router,prefix='/computer',tags=['computer'])
 
 from .local_device import router as local_device_router
 router.include_router(local_device_router,prefix='/local-device',tags=['local-device'])
+
+from .prospecting import router as prospecting_router
+router.include_router(prospecting_router, prefix='/prospecting', tags=['prospecting'])

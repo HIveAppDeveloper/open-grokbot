@@ -18,9 +18,9 @@ async def initialize_database(database_engine=None):
             from app.services.atlas_admission import initialize_admission_schema
             await initialize_admission_schema(connection)
             await connection.execute(text(f'CREATE TABLE IF NOT EXISTS "{schema}".schema_revision (id INTEGER PRIMARY KEY, version VARCHAR(40) NOT NULL)'))
-            if await connection.scalar(text(f'SELECT version FROM "{schema}".schema_revision WHERE id=1')) == '2026-10-21-workspace-computer-v3':
+            if await connection.scalar(text(f'SELECT version FROM "{schema}".schema_revision WHERE id=1')) == '2026-10-23-prospecting-v1':
                 return
         await connection.run_sync(ensure_tenant_schema)
         await connection.run_sync(Base.metadata.create_all)
         if database_engine.dialect.name == 'postgresql':
-            await connection.execute(text(f'INSERT INTO "{schema}".schema_revision (id,version) VALUES (1,\'2026-10-21-workspace-computer-v3\') ON CONFLICT (id) DO UPDATE SET version=EXCLUDED.version'))
+            await connection.execute(text(f'INSERT INTO "{schema}".schema_revision (id,version) VALUES (1,\'2026-10-23-prospecting-v1\') ON CONFLICT (id) DO UPDATE SET version=EXCLUDED.version'))

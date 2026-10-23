@@ -13,12 +13,13 @@ def notify_work(session, context):
     if session.get_bind().dialect.name != 'postgresql':
         return
     from app.models.task import Task
+    from app.models.prospecting import ProspectingRun
     from app.models.automation import Goal
     from app.models.plugin_sync import PluginSync
     from app.models.runtime import RuntimeCheck
     from app.models.workspace import Routine,ComputerCommand
     for item in list(session.new) + list(session.dirty):
-        if ((isinstance(item, (Task, PluginSync, RuntimeCheck, ComputerCommand)) and item.status == 'pending') or
+        if ((isinstance(item, (Task, PluginSync, RuntimeCheck, ComputerCommand, ProspectingRun)) and item.status == 'pending') or
                 (isinstance(item, Goal) and item.status == 'active') or (isinstance(item,Routine) and item.enabled)):
             # PostgreSQL delivers this only after a successful commit. No user
             # data, IDs or credentials enter the notification payload.

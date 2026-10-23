@@ -145,6 +145,8 @@ async def _run_worker_loop(lock_connection=None, owner_pid=None, stop_event=None
             await db.commit()
     from app.services.model_connections import recover_checks
     await recover_checks(AsyncSessionLocal)
+    from app.services.prospecting import recover as recover_prospecting
+    await recover_prospecting(AsyncSessionLocal)
     if os.getenv("GROKBOT_VERIFY_CLOUD") == "true":
         await run_checks()
     from app.db.wakeup import wait_for_work
@@ -157,6 +159,8 @@ async def _run_worker_loop(lock_connection=None, owner_pid=None, stop_event=None
     while not stop_event.is_set():
         await pulse()
         await tick_commands(AsyncSessionLocal)
+        from app.services.prospecting import tick as tick_prospecting
+        prospecting_work = await tick_prospecting(AsyncSessionLocal)
         maintenance_due = lock_connection is None or time.monotonic()-last_maintenance >= 60 or (wake is not None and wake.is_set())
         requested = False
         if maintenance_due:
@@ -196,7 +200,7 @@ async def _run_worker_loop(lock_connection=None, owner_pid=None, stop_event=None
                 break
             if task is None:
                 await db.commit()
-                signaled = await wait_for_work(wake,stop_event,30 if lock_connection is not None else POLL_SECONDS)
+                signaled = await wait_for_work(wake,stop_event,0 if prospecting_work else (30 if lock_connection is not None else POLL_SECONDS))
                 if signaled:last_maintenance = 0
                 continue
             tenant_token = current_tenant_id.set(getattr(task, "tenant_id", "legacy-owner"))

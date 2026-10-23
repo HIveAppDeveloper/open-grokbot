@@ -1,0 +1,175 @@
+{
+  "verification": "REAL public Wikipedia requests through actual FastAPI routes, disposable SQLite, and durable worker slices; no production state or paid APIs",
+  "created_status": "pending",
+  "run": {
+    "id": "ec6f991f-40fc-4cce-9894-b497a5f84114",
+    "market": "cybersecurity",
+    "product": "cloud security",
+    "limit": 3,
+    "status": "completed",
+    "created_at": "2026-10-23T00:22:37.970593",
+    "completed_at": "2026-10-23T00:22:41.723091",
+    "results": [
+      {
+        "id": "wikipedia-36482460",
+        "name": "Optiv",
+        "source_url": "https://en.wikipedia.org/wiki/Optiv",
+        "retrieved_at": "2026-10-23T00:22:41.720117+00:00",
+        "observed": {
+          "description": "Optiv Security, Inc. (Optiv) is a privately owned information security services and security technology reseller company based in Denver, Colorado. Optiv is a solutions integrator that delivers end-to-end cybersecurity services globally.\nOptiv has served more than 7,500 clients across 70 countries worldwide since 2015. Optiv is exclusively focused on cybersecurity and risk.\nOptiv's vendor partner ecosystem includes over 800 established and emerging cybersecurity software providers and hardware manufacturers.\nIn 2017, Optiv was acquired by global investment company Kohlberg Kravis Roberts (KKR).",
+          "source": "Wikipedia",
+          "organization_status": "candidate based on source wording"
+        },
+        "inferred": {
+          "fit_score": 20,
+          "matched_terms": [
+            "cybersecurity",
+            "security"
+          ],
+          "reason": "Lexical overlap with the supplied market/product; no buying intent is established.",
+          "contributions": [
+            {
+              "term": "cybersecurity",
+              "points": 10,
+              "source_url": "https://en.wikipedia.org/wiki/Optiv"
+            },
+            {
+              "term": "security",
+              "points": 10,
+              "source_url": "https://en.wikipedia.org/wiki/Optiv"
+            }
+          ]
+        },
+        "contact": {
+          "status": "needed",
+          "email": null,
+          "source_url": null
+        },
+        "draft": null
+      },
+      {
+        "id": "wikipedia-80670008",
+        "name": "Huntress (company)",
+        "source_url": "https://en.wikipedia.org/wiki/Huntress_%28company%29",
+        "retrieved_at": "2026-10-23T00:22:40.500278+00:00",
+        "observed": {
+          "description": "Huntress is an American cybersecurity company based in Columbia, Maryland.",
+          "source": "Wikipedia",
+          "organization_status": "candidate based on source wording"
+        },
+        "inferred": {
+          "fit_score": 10,
+          "matched_terms": [
+            "cybersecurity"
+          ],
+          "reason": "Lexical overlap with the supplied market/product; no buying intent is established.",
+          "contributions": [
+            {
+              "term": "cybersecurity",
+              "points": 10,
+              "source_url": "https://en.wikipedia.org/wiki/Huntress_%28company%29"
+            }
+          ]
+        },
+        "contact": {
+          "status": "needed",
+          "email": null,
+          "source_url": null
+        },
+        "draft": null
+      },
+      {
+        "id": "wikipedia-81376677",
+        "name": "Veriti",
+        "source_url": "https://en.wikipedia.org/wiki/Veriti",
+        "retrieved_at": "2026-10-23T00:22:39.377399+00:00",
+        "observed": {
+          "description": "Veriti is an Israeli cybersecurity company that develops software for threat exposure management and automated remediation across multi-vendor environments. The company emerged from stealth in November 2022 with $18.5 million in funding and was acquired by Check Point Software Technologies in 2025.",
+          "source": "Wikipedia",
+          "organization_status": "candidate based on source wording"
+        },
+        "inferred": {
+          "fit_score": 10,
+          "matched_terms": [
+            "cybersecurity"
+          ],
+          "reason": "Lexical overlap with the supplied market/product; no buying intent is established.",
+          "contributions": [
+            {
+              "term": "cybersecurity",
+              "points": 10,
+              "source_url": "https://en.wikipedia.org/wiki/Veriti"
+            }
+          ]
+        },
+        "contact": {
+          "status": "needed",
+          "email": null,
+          "source_url": null
+        },
+        "draft": null
+      }
+    ],
+    "events": [
+      {
+        "type": "queued",
+        "at": "2026-10-23T00:22:37.970032+00:00",
+        "source": "Wikipedia API"
+      },
+      {
+        "type": "started",
+        "at": "2026-10-23T00:22:37.974580+00:00",
+        "source": "Wikipedia API"
+      },
+      {
+        "type": "discovered",
+        "at": "2026-10-23T00:22:38.240561+00:00",
+        "count": 3,
+        "source_url": "https://en.wikipedia.org/w/api.php",
+        "retrieved_at": "2026-10-23T00:22:38.240555+00:00"
+      },
+      {
+        "type": "result_saved",
+        "at": "2026-10-23T00:22:39.377470+00:00",
+        "result_id": "wikipedia-81376677",
+        "source_url": "https://en.wikipedia.org/wiki/Veriti",
+        "retrieved_at": "2026-10-23T00:22:39.377399+00:00"
+      },
+      {
+        "type": "result_saved",
+        "at": "2026-10-23T00:22:40.500299+00:00",
+        "result_id": "wikipedia-80670008",
+        "source_url": "https://en.wikipedia.org/wiki/Huntress_%28company%29",
+        "retrieved_at": "2026-10-23T00:22:40.500278+00:00"
+      },
+      {
+        "type": "result_saved",
+        "at": "2026-10-23T00:22:41.720163+00:00",
+        "result_id": "wikipedia-36482460",
+        "source_url": "https://en.wikipedia.org/wiki/Optiv",
+        "retrieved_at": "2026-10-23T00:22:41.720117+00:00"
+      },
+      {
+        "type": "completed",
+        "at": "2026-10-23T00:22:41.723100+00:00",
+        "count": 3
+      }
+    ],
+    "gmail": {
+      "status": "connection_required",
+      "verified": false,
+      "supported_draft": false,
+      "plugin_ids": [],
+      "detail": "Connect Gmail in Plugins for this account. No mailbox grant was created; no Gmail draft API is verified."
+    },
+    "sending": {
+      "enabled": false,
+      "review_required": true
+    },
+    "limitations": [
+      "Public encyclopedia company candidates only; coverage is incomplete.",
+      "Scores are lexical relevance, not verified interest or spending.",
+      "Drafts are stored locally in the app; no Gmail draft or email is created."
+    ]
+  }
+}
